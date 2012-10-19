@@ -12,6 +12,7 @@ namespace Propel\PropelBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 
 use Propel\PropelBundle\Form\ChoiceList\ModelChoiceList;
@@ -26,7 +27,7 @@ use Propel\PropelBundle\Form\EventListener\MergeCollectionListener;
  */
 class ModelType extends AbstractType
 {
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         if ($options['multiple']) {
             $builder->prependClientTransformer(new ModelsToArrayTransformer($options['choice_list']));
@@ -62,7 +63,7 @@ class ModelType extends AbstractType
         return $defaultOptions;
     }
 
-    public function getParent(array $options)
+    public function getParent(array $option)
     {
         return 'choice';
     }
