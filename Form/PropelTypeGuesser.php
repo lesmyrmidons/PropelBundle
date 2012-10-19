@@ -143,4 +143,12 @@ class PropelTypeGuesser implements FormTypeGuesserInterface
             return $this->cache[$class.'::'.$property] = $table->getColumn($property);
         }
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function guessPattern(string $class, string $property) {
+      // TODO: Auto-generated method stub
+
+    }
 }
